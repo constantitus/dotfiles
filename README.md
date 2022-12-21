@@ -1,4 +1,6 @@
 # My Dotfiles
+mostly stolen stuff from other r/unixporn users
+
 What you need:
 - BSPWM
 - Polybar
