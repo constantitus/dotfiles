@@ -25,6 +25,12 @@ super + Escape
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
+super + alt + s
+        . .startx &
+
+super + alt + p
+        sh ~/picom.sh
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
@@ -84,8 +90,11 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{1-4}'
+
+alt + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{5-8}'
 
 #
 # preselect
@@ -134,10 +143,14 @@ super + F3
         pactl set-sink-volume @DEFAULT_SINK@ +1000
 # mic mute
 super + F4
-       pactl set-source-mute @DEFAULT_SOURCE@ toggle
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 shift + Print
         scrot -s --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png
+
+super + Print
+        scrot ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png
+
 Print
 #	scrot -e 'xclip -selection clipboard -t image/png -i $f'
 	scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
@@ -146,4 +159,6 @@ Print
 super + {F7,F8}
         brightnessctl set 1000{-,+}
 
+super + {equal,minus}
+        bspc config -n focused window_gap $(($(bspc config -n focused window_gap) {-,+} 3))
 

@@ -3,16 +3,16 @@
 
 # SETTINGS {{{ ---
 
-active_text_color="#f73028"
-active_bg="#1e1e1e"
-active_underline="#BE0F17"
+active_text_color="#ffffff"
+active_bg="#90"
+active_underline="7018db"
 
-inactive_text_color="#7F7061"
-inactive_bg="#1e1e1e"
+inactive_text_color="#ffffff"
+inactive_bg="#90"
 inactive_underline=
 
 separator=" "
-show="icon" # options: window_title, window_class, window_classname, icon
+show="window_title" # options: window_title, window_class, window_classname, icon
 forbidden_classes="Polybar Conky Gmrun"
 empty_desktop_message="Desktop"
 
@@ -91,8 +91,8 @@ decrement_size() {
   wmctrl -ir "$1" -e "0,$x,$y,$w,$h"
 }
 
-# --- }}}
 
+# --- }}}
 # WINDOW LIST SETUP {{{ ---
 
 active_left="%{F$active_text_color}"
