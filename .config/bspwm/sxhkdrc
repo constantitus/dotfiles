@@ -1,14 +1,14 @@
 # terminal emulator
 super + Return
-	alacritty
+				kitty
 
 super + shift + Return
-        kitty
+        alacritty
 
 
 # program launchers
 super + space
-        /home/bern/.config/rofi/launchers/type-3/launcher.sh	
+        $HOME/.config/rofi/launchers/type-3/launcher.sh	
 
 super + alt + space
         dmenu_run -b
@@ -29,6 +29,9 @@ super + alt + {q,r}
 super + alt + p
         sh ~/.config/bspwm/picom.sh
 
+# start stop tor service
+super + alt + o
+				sh ~/.config/bspwm/tor.sh
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}

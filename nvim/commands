@@ -1,3 +1,0 @@
-"ay "ap   "by "bp ... "+y "+p  (yank/paste registers a-z. + = clipboard)
-vi{=  (tab)
-:%s/find/replace/g

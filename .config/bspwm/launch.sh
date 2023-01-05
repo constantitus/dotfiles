@@ -11,4 +11,4 @@ bspc wm -r
 # just executing bspwmrc isn't enough to have bspwm
 # use the config and it'd just load a blackscreen
 
-picom --experimental-backend --config ~/.config/bspwm/picom.conf &
+sh .config/bspwm/picom.sh &

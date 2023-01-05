@@ -11,12 +11,17 @@ My Dotfiles
 - Alacritty or Kitty (or whichever terminal you prefer)
 - xsetroot (for the cursor)
 - xsettingsd
-
 ### More misc packages:
+- zsh
 - xinerama (for dual monitor)
 - scrot (screenshots)
 - redshift (warmer colors during nighttime)
 - brighntessctl (systemd) or dev-libs/light for brightness control.
+- kitty (terminal)
+- lf (terminal file manager)
+- lf-ueberzug dependencies from (this)[https://github.com/slavistan/lf-gadgets] repository
+	(image preview for lf)(the scripts are already in the dotfiles)
+- gotop
 
 I use pipewire and wireplumber instead of pulseaudio.
 If you just use pulseaudio, delete the script for pipewire.
