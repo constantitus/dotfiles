@@ -144,7 +144,7 @@ super + {Left,Down,Up,Right}
 
 # pipewire reset
 super + alt + s
-        . .pipewire &
+        . ~/.config/bspwm/pipewire &
 
 # mute
 super + F1 

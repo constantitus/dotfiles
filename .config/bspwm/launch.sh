@@ -2,7 +2,7 @@
 
 sleep 1
 
-# redshift -c ~/.config/bspwm/redshift.conf &
+redshift -c ~/.config/bspwm/redshift.conf &
 # I personally use redshift, but excluded it from
 # my dotfiles because it messes with the rice
 
