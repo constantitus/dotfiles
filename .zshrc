@@ -58,7 +58,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lfu to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lfu # --last-dir-path="$tmp" "$@" # moved into the lfu script
+    lfu --last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
