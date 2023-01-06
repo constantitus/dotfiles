@@ -55,10 +55,10 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
+# Use lfu to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    lfu # --last-dir-path="$tmp" "$@" # moved into the lfu script
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
@@ -67,20 +67,6 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# # Use lfu to switch directories and bind it to ctrl-o
-lfcd() {
-	LF_SHELLCD_TEMPDIR="$(mktemp -d -t lf-shellcd-XXXXXX)"
-	export LF_SHELLCD_TEMPDIR
-	lfu -last-dir-path "$LF_SHELLCD_TEMPDIR/lastdir" \
-		-command "source '${XDG_CONFIG_HOME:-$HOME/.config}/lf-shellcd/lfrc-shellcd'" "$@"
-	if [ -e "$LF_SHELLCD_TEMPDIR/changecwd" ] && \
-		dir="$(cat "$LF_SHELLCD_TEMPDIR/lastdir")" 2>/dev/null; then
-		cd "$dir"
-	fi
-	rm -rf "$LF_SHELLCD_TEMPDIR"
-	unset LF_SHELLCD_TEMPDIR
-}
-bindkey -s '^o' 'lfcd\n'
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line

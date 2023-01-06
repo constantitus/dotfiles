@@ -4,6 +4,9 @@ set ignorecase true
 set icons true
 set shell zsh
 set shellopts -eu
+set preview true
+set previewer lf-ueberzug-previewer
+set cleaner lf-ueberzug-cleaner
 
 # Custom Functions
 cmd mkdir ${{
@@ -56,6 +59,7 @@ cmd restore_trash ${{
 
 # Bindings
 # Remove some defaults
+map - $/$HOME/.config/lf/draw_img $f
 map m
 map o
 map n
