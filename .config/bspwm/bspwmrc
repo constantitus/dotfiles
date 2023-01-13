@@ -51,6 +51,7 @@ bspc rule -r "*"
 bspc rule -a Steam desktop=4 focus=off
 bspc rule -a dota2 desktop=1
 bspc rule -a Discord follow=off
+bspc rule -a kitty rectangle=800x400+555+400
 # bspc rule -a Conky sticky=on manage=off lower=on # I don't use conky
 
 ## Startup scripts
