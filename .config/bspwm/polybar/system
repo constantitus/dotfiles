@@ -24,6 +24,6 @@
 sys_adapter = ACAD
 sys_battery = BAT1
 sys_graphics_card = amdgpu_bl0
-sys_network_interface = wlan0
+sys_network_interface = enp0s31f6
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
