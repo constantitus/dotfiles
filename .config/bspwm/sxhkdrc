@@ -10,6 +10,9 @@ super + shift + Return
 super + space
         $HOME/.config/rofi/launchers/type-3/launcher.sh	
 
+super + shift + space
+				firefox
+
 super + alt + space
         dmenu_run -b
 
@@ -32,6 +35,10 @@ super + alt + p
 # start stop tor service
 super + alt + o
 				sh ~/.config/bspwm/tor.sh
+
+super + alt + i 
+				sh ~/.config/bspwm/redshift.sh
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
