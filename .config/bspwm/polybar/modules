@@ -1,4 +1,3 @@
-
 #[module/date]
 #type = internal/date
 #
@@ -178,13 +177,3 @@ click-left = ~/.config/bspwm/rofi/bin/launcher
 ;;scroll-up = path_to_script
 ;;scroll-down = path_to_script
 
-#;;
-#[module/powermenu]
-#type = custom/text
-#content = ⭘
-#content-font = 24
-#content-background = ${color.BG}
-#content-foreground = {color.pink}
-#content-padding = 0
-#
-#click-left = ~/.config/bspwm/rofi/bin/powermenu
