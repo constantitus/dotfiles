@@ -4,7 +4,7 @@ My Dotfiles
 *mostly stolen stuff from other r/unixporn users*
 
 ----
-### What you need:
+### Main packages:
 - BSPWM
 - Polybar
 - SXHKD
@@ -13,7 +13,7 @@ My Dotfiles
 - Alacritty or Kitty (or whichever terminal you prefer)
 - xsetroot (for the cursor)
 - xsettingsd
-### More misc packages:
+### Misc packages:
 - zsh
 - xinerama (for dual monitor)
 - scrot (screenshots)
