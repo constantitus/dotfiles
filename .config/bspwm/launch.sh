@@ -13,3 +13,6 @@ bspc wm -r
 
 killall picom
 sh .config/bspwm/picom.sh &
+
+sleep 5
+doas corectrl &
