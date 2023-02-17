@@ -1,9 +1,9 @@
 # terminal emulator
 super + Return
-				kitty
+	alacritty
 
 super + shift + Return
-        alacritty
+        kitty
 
 
 # program launchers
@@ -38,6 +38,11 @@ super + alt + o
 
 super + alt + i 
 				sh ~/.config/bspwm/redshift.sh
+
+# start stop uniconize
+super + alt + u
+				sh ~/.config/bspwm/uniconize.sh
+
 
 # close and kill
 super + {_,shift + }w

@@ -1,0 +1,32 @@
+colors:
+  # Default colors
+  primary:
+    background: '#26282a'
+    foreground: '#f0f0f0'
+  cursor:
+    background: '#f0f0f0'
+    foreground: '#26282a'
+
+  # Normal colors
+  normal:
+    black: '#26282a'
+    red: '#be1053'
+    green: '#b4fb73'
+    yellow: '#fffcb7'
+    blue: '#7fb9d7'
+    magenta: '#e2b4e2'
+    cyan: '#ff7c68'
+    white: '#f1f1f1'
+
+  # Bright colors
+  bright:
+    black: '#6f6f6f'
+    red: '#ee1568'
+    green: '#d6fcba'
+    yellow: '#fffed5'
+    blue: '#baddf4'
+    magenta: '#f3d6f5'
+    cyan: '#ffa89b'
+    white: '#ffffff'
+opacity: 0.5
+theme: Custom

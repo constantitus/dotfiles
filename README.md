@@ -18,6 +18,7 @@ My Dotfiles
 - xinerama (for dual monitor)
 - scrot (screenshots)
 - redshift (warmer colors during nighttime)
+- (uniconize)[https://github.com/neXromancers/uniconize] (solves blackscreen issues in wine)
 - brighntessctl (systemd) or dev-libs/light for brightness control.
 - kitty (terminal)
 - lf (terminal file manager)
