@@ -1,4 +1,3 @@
-
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Any items in the `env` entry below will be added as
@@ -580,7 +579,7 @@ schemes:
 # *SolarizedDark
 # *TomorrowNight
 
-colors: *Dracula
+# colors: *Dracula
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -869,5 +868,5 @@ key_bindings:
   - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
   - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
 
-
-
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml

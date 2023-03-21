@@ -3,15 +3,22 @@ export HISTFILE=~/.cache/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 export VISUAL='nvim'
+export QT_STYLE_OVERRIDE=adwaita-dark
+
+export MINGW32_PREFIX="/usr/bin/i686-w64-mingw32-gcc"
+export MINGW64_PREFIX="/usr/bin/x86_64-w64-mingw32-gcc"
 
 # Adding ~/bin and ~/cargo/bin to path
 PATH=$PATH$( find $HOME/bin/ -type d -printf ":%p" ):$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.dotnet/tools:$HOME/Android/Sdk/cmdline-tools/latest/bin:$HOME/git/emsdk:$HOME/git/emsdk/upstream/emscripten:$HOME/git/emsdk/node/14.18.2_64bit/bin:$PATH"
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export WINEPREFIX=$HOME/.wine
+export GODOT4_BIN=$HOME/bin/godot4
 
 # Enable colors and change prompt:
 autoload -U colors && colors
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}＠%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-source ~/.config/zsh/agnoster.zsh-theme
+source ~/.config/zsh/kolo.zsh-theme
 
 # Basic auto/tab complete (scrambled shit from other pepole's)
 autoload -Uz compinit

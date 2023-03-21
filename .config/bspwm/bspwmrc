@@ -54,6 +54,7 @@ bspc rule -a Discord follow=off
 bspc rule -a kitty rectangle=800x400+555+400
 bspc rule -a steam_proton border=off
 bspc rule -a wine border=off
+
 # bspc rule -a Game state=floating
 # bspc rule -a Conky sticky=on manage=off lower=on # I don't use conky
 
@@ -84,7 +85,7 @@ polybar secondary --config=~/.config/bspwm/polybar/config.ini &
 dunst -config ~/.config/bspwm/dunstrc &
 
 # wallpaper set
-feh --bg-fill ~/Pictures/tamako.jpg
+feh --bg-fill ~/Pictures/mahiro1.jpeg
 
 
 
