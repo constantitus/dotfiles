@@ -3,7 +3,8 @@
 
 if pgrep -x "picom" > /dev/null
 then
-	killall picom
+	killall picom && notify-send "killing picom"
 else
-	picom --experimental-backend --config ~/.config/bspwm/picom.conf &
+  notify-send "starting picom" &&
+	picom --config ~/.config/bspwm/picom.conf &
 fi
