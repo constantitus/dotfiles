@@ -13,6 +13,7 @@ My Dotfiles
 - Alacritty or Kitty (or whichever terminal you prefer)
 - xsetroot (for the cursor)
 - xsettingsd
+- wmctrl (for polywins)
 ### Misc packages:
 - zsh
 - xinerama (for dual monitor)
