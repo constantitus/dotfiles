@@ -48,8 +48,9 @@ bspc wm --adopt-orphans
 
 # rules
 bspc rule -r "*"
-bspc rule -a Steam desktop=4 focus=off
+bspc rule -a steam desktop=8 focus=off
 bspc rule -a dota2 desktop=1
+bspc rule -a hl2_linux desktop=1
 bspc rule -a Discord follow=off
 bspc rule -a kitty rectangle=800x400+555+400
 bspc rule -a steam_proton border=off

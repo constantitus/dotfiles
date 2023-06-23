@@ -32,8 +32,12 @@ super + alt + {q,r}
 super + alt + p
         sh ~/.config/bspwm/picom.sh
 
-# start stop tor service
+# 60hz
 super + alt + o
+        sh ~/.config/bspwm/60hz.sh
+
+# start stop tor service
+super + alt + t
 				sh ~/.config/bspwm/tor.sh
 
 super + alt + i 
@@ -161,25 +165,35 @@ super + alt + s
 # mute
 super + F1 
         pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMute
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
 # volume down
 super + F2
+        pactl set-sink-volume @DEFAULT_SINK@ -1000
+
+XF86AudioLowerVolume
         pactl set-sink-volume @DEFAULT_SINK@ -1000
 # volume up
 super + F3
         pactl set-sink-volume @DEFAULT_SINK@ +1000
+
+XF86AudioRaiseVolume
+        pactl set-sink-volume @DEFAULT_SINK@ +1000
+
 # mic mute
 super + F4
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 shift + Print
-        scrot -s --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png
+        scrot --freeze -s --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png
 
 super + Print
         scrot ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png
 
 Print
 #	scrot -e 'xclip -selection clipboard -t image/png -i $f'
-	scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+	scrot --freeze -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 ## brightnessctl depends on systemd and I don't use sytemd.I would have used
 ## light or redshift, but I don't really need brightness control on this desktop.
