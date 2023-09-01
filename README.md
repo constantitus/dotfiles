@@ -8,7 +8,7 @@ My Dotfiles
 - BSPWM
 - Polybar
 - SXHKD
-- Picom [jonaburg-fix](https://github.com/jonaburg/picom)
+- Picom (I am using [pijulius](https://github.com/pijulius/picom)' version, for the cool animations)
 - rofi or dmenu for launching apps, both are in the config
 - Alacritty or Kitty (or whichever terminal you prefer)
 - xsetroot (for the cursor)
@@ -16,19 +16,16 @@ My Dotfiles
 - wmctrl (for polywins)
 ### Misc packages:
 - zsh
-- xinerama (for dual monitor)
+- xinerama (for multiple monitors)
 - scrot (screenshots)
 - redshift (warmer colors during nighttime)
 - (uniconize)[https://github.com/neXromancers/uniconize] (solves blackscreen issues in wine)
 - brighntessctl (systemd) or dev-libs/light for brightness control.
-- kitty (terminal)
 - lf (terminal file manager)
 - lf-ueberzug dependencies from (this)[https://github.com/slavistan/lf-gadgets] repository
 	(image preview for lf)(the scripts are already in the dotfiles)
-- gotop
 
 I use pipewire and wireplumber instead of pulseaudio.
-If you just use pulseaudio, delete the script for pipewire.
 
 ----
 ### xinitrc config

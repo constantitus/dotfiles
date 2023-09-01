@@ -13,4 +13,6 @@ sleep 1
 sleep 1
 /usr/bin/pipewire -c pipewire-pulse.conf &
 sleep 1
+sh $HOME/.config/bspwm/carla.sh &
 exec /usr/bin/wireplumber
+

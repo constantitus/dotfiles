@@ -2,7 +2,7 @@
 
 sleep 1
 
-redshift -c ~/.config/bspwm/redshift.conf &
+# redshift -c ~/.config/bspwm/redshift.conf &
 # I personally use redshift, but excluded it from
 # my dotfiles because it messes with the rice
 
@@ -11,8 +11,10 @@ bspc wm -r
 # just executing bspwmrc isn't enough to have bspwm
 # use the config and it'd just load a blackscreen
 
-killall picom
-sh .config/bspwm/picom.sh &
+# sh .config/bspwm/picom.sh &
+
+sh ~/.config/bspwm/performance.sh &
+sh ~/.config/bspwm/uniconize.sh &
 
 sleep 5
 doas corectrl &
