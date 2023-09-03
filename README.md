@@ -1,10 +1,9 @@
 My Dotfiles
 =======
-
 *mostly stolen stuff from other r/unixporn users*
 
 ----
-### Main packages:
+### Dependencies:
 - BSPWM
 - Polybar
 - SXHKD
@@ -20,25 +19,28 @@ My Dotfiles
 - scrot (screenshots)
 - redshift (warmer colors during nighttime)
 - (uniconize)[https://github.com/neXromancers/uniconize] (solves blackscreen issues in wine)
-- brighntessctl (systemd) or dev-libs/light for brightness control.
 - lf (terminal file manager)
 - lf-ueberzug dependencies from (this)[https://github.com/slavistan/lf-gadgets] repository
 	(image preview for lf)(the scripts are already in the dotfiles)
+- dunst or something that supports notify-send (to get feedback from the scripts)
+### Other stuff
+- neovim and vscodium
+- sayonara (qt based music player)
+- qt5ct-svg-translucent from AUR (qt theme transparency)
+- discord-screenaudio (only with pipewire)
 
-I use pipewire and wireplumber instead of pulseaudio.
+I use pipewire with wireplumber instead of pulseaudio.
 
 ----
-### xinitrc config
+### .xinitrc config
 Add 
 ```bash
 setxkbmap us &
-sh ~/.config/bspwm/launch.sh &
-sh ~/.config/bspwm/pipewire & # pipewire-pulse launch script
+sh ~/.config/bspwm/bin/launch.sh &
+sh ~/.config/bspwm/bin/pipewire.sh & # pipewire-pulse launch script
 sh ~/.config/bspwm/bspwmrc &
+sh ~/.config/bspwm/bin/bicom.sh &
 exec dbus-launch --exit-with-session bspwm -c /home/bern/.config/bspwm/bspwmrc
 ```
 
 ----
-I'm probably missing something...
-
-oh, yea. the background is from "oshi no ko".

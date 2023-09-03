@@ -30,29 +30,29 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 super + alt + p
-        sh ~/.config/bspwm/picom.sh
+        sh ~/.config/bspwm/bin/picom.sh
 
 # 60hz
 super + alt + o
-        sh ~/.config/bspwm/60hz.sh
+        sh ~/.config/bspwm/bin/60hz.sh
 
 # start stop tor service
 super + alt + t
-				sh ~/.config/bspwm/tor.sh
+				sh ~/.config/bspwm/bin/tor.sh
 
 # redshift
 super + alt + i 
-				sh ~/.config/bspwm/redshift.sh
+				sh ~/.config/bspwm/bin/redshift.sh
 
 # start stop uniconize
 super + alt + u
-				sh ~/.config/bspwm/uniconize.sh
+				sh ~/.config/bspwm/bin/uniconize.sh
 
 super + alt + 0
-        sh ~/.config/bspwm/performance.sh
+        sh ~/.config/bspwm/bin/performance.sh
 
 super + alt + s
-        sh ~/.config/bspwm/floating.sh
+        sh ~/.config/bspwm/bin/floating.sh
 
 super + alt + 9
         redshift -PO 6500 -b 1
@@ -142,7 +142,7 @@ super + {_,shift + }{z,x,c,v}
 
 # hide/unhide window
 super + e
-         sh ~/.config/bspwm/winhide.sh
+         sh ~/.config/bspwm/bin/winhide.sh
 
 # preselect
 #
@@ -184,7 +184,7 @@ super + {Left,Down,Up,Right}
 
 # pipewire reset
 super + alt + shift + s
-        . ~/.config/bspwm/pipewire &
+        . ~/.config/bspwm/bin/pipewire.sh &
 
 # mute
 super + F1 
