@@ -6,7 +6,7 @@
 
 <h4 align="center">*mostly stolen stuff from other r/unixporn users*</h4>
 
-~[screenshot](Screenshots/0.png)
+![screenshot](Screenshots/0.png)
 
 ## About
 My BSPWM dotfiles from my main desktop.
@@ -66,8 +66,8 @@ exec dbus-launch --exit-with-session bspwm -c /home/bern/.config/bspwm/bspwmrc
     <summary>Spoiler</summary>
 
 
-~[screenshot](Screenshots/1.png)
-~[screenshot](Screenshots/2.png)
-~[screenshot](Screenshots/3.png)
+![screenshot](Screenshots/1.png)
+![screenshot](Screenshots/2.png)
+![screenshot](Screenshots/3.png)
 
 </details>
