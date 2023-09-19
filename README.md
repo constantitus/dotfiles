@@ -10,8 +10,7 @@
 
 ## About
 My BSPWM dotfiles from my main desktop.
-I don't have a login gui, I just runt it with startx from tty.
-They come with a few scripts that I've made for my personal needs, such as a random background picker, a window swallower, a window hider, etc.
+I don't have a login gui, I just run it with startx from tty. Comes with a few scripts that I've made for my personal needs, such as a random background picker, a window swallower, a window hider, etc.
 
 ## Dependencies:
 - BSPWM
