@@ -1612,24 +1612,16 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>Audient iD22 Pro:capture_AUX0</Source>
+   <Source>Audient iD22 Multichannel:capture_AUX0</Source>
    <Target>LSP Parametric Equalizer x16 Mono:Input</Target>
-  </Connection>
-  <Connection>
-   <Source>discord-screenaudio-35:output_FL</Source>
-   <Target>Audient iD22 Pro:playback_AUX0</Target>
-  </Connection>
-  <Connection>
-   <Source>discord-screenaudio-35:output_FR</Source>
-   <Target>Audient iD22 Pro:playback_AUX1</Target>
-  </Connection>
-  <Connection>
-   <Source>LSP Gate Mono:Output</Source>
-   <Target>LSP Compressor Mono:Input</Target>
   </Connection>
   <Connection>
    <Source>LSP Parametric Equalizer x16 Mono:Output</Source>
    <Target>LSP Gate Mono:Input</Target>
+  </Connection>
+  <Connection>
+   <Source>LSP Gate Mono:Output</Source>
+   <Target>LSP Compressor Mono:Input</Target>
   </Connection>
   <Connection>
    <Source>LSP Compressor Mono:Output</Source>
@@ -1639,63 +1631,30 @@
    <Source>LSP Compressor Mono:Output</Source>
    <Target>pw-virtual-effects:playback_FR</Target>
   </Connection>
-  <Connection>
-   <Source>discord-screenaudio-122:output_FL</Source>
-   <Target>Audient iD22 Pro:playback_AUX0</Target>
-  </Connection>
-  <Connection>
-   <Source>discord-screenaudio-122:output_FR</Source>
-   <Target>Audient iD22 Pro:playback_AUX1</Target>
-  </Connection>
-  <Connection>
-   <Source>discord-screenaudio:output_FL</Source>
-   <Target>Audient iD22 Pro:playback_AUX0</Target>
-  </Connection>
-  <Connection>
-   <Source>discord-screenaudio:output_FR</Source>
-   <Target>Audient iD22 Pro:playback_AUX1</Target>
-  </Connection>
-  <Connection>
-   <Source>pw-virtual-effects:capture_FL</Source>
-   <Target>Chromium input:input_FL</Target>
-  </Connection>
-  <Connection>
-   <Source>pw-virtual-effects:capture_FR</Source>
-   <Target>Chromium input:input_FR</Target>
-  </Connection>
   <Positions>
-   <Position x1="0" y1="98" x2="1214" y2="106">
-    <Name>Audient iD22 Pro</Name>
-   </Position>
    <Position x1="80" y1="1049" x2="1344" y2="1176">
     <Name>Built-in Audio Analog Stereo</Name>
+   </Position>
+   <Position x1="196" y1="580" x2="1242" y2="674">
+    <Name>Audient iD22 Multichannel</Name>
    </Position>
    <Position x1="17" y1="1118" x2="345" y2="1115">
     <Name>Built-in Audio Digital Stereo (IEC958)</Name>
    </Position>
-   <Position x1="261" y1="312">
+   <Position x1="727" y1="816">
     <Name>pw-virtual-effects</Name>
-   </Position>
-   <Position x1="266" y1="449">
-    <Name>Chromium input</Name>
-   </Position>
-   <Position x1="506" y1="529">
-    <Name>discord-screenaudio-virtmic</Name>
    </Position>
    <Position x1="643" y1="1128" x2="940" y2="1128">
     <Name>Midi-Bridge</Name>
    </Position>
-   <Position x1="255" y1="82" pluginId="0">
+   <Position x1="721" y1="586" pluginId="0">
     <Name>LSP Parametric Equalizer x16 Mono</Name>
    </Position>
-   <Position x1="261" y1="153" pluginId="1">
+   <Position x1="727" y1="657" pluginId="1">
     <Name>LSP Gate Mono</Name>
    </Position>
-   <Position x1="257" y1="228" pluginId="2">
+   <Position x1="723" y1="732" pluginId="2">
     <Name>LSP Compressor Mono</Name>
-   </Position>
-   <Position x1="504" y1="674">
-    <Name>discord-screenaudio</Name>
    </Position>
   </Positions>
  </ExternalPatchbay>

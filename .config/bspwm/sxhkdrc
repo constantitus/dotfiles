@@ -68,9 +68,17 @@ super + alt + f
         firefox
 super + shift + alt + f
         firefox --private-window
-
 super + alt + d
         thunar
+super + aly + v 
+        codium
+super + alt + m 
+        sayonara
+super + alt + c 
+        flatpak run org.chromium.Chromium
+super + alt + b
+        sh ~/.config/bspwm/bin/randombg.sh l
+
 
 # close and kill
 super + {_,shift + }w
@@ -226,7 +234,7 @@ Print
 
 # controls the gaps in between windows
 super + {equal,minus}
-        bspc config window_gap $(($(bspc config window_gap) {-,+} 3))
+        bspc config window_gap $(($(bspc config window_gap) {-,+} 1))
 
 super + shift + {equal,minus}
         bspc config -n focused window_gap $(($(bspc config -n focused window_gap) {-,+} 3))
@@ -237,3 +245,8 @@ super + alt + 4
         bspc config border_width 1 ; bspc config window_gap 1
 super + alt + 5
         bspc config border_width 2 ; bspc config window_gap 2
+
+# some shit keeps turning my key repeat off
+# and I'm too stupid to figure out what is
+super + alt + g
+        xset r
