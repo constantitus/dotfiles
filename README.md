@@ -43,7 +43,7 @@ I use pipewire with wireplumber instead of pulseaudio.
 
 ## Installation
 
-Clone the repo into your $HOME folder
+Clone the repo with the `--recurse-submodules` option into your $HOME folder
 
 Set your monitor(s) in bspwmrc and polybar/config.ini
 
