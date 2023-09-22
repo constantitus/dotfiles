@@ -10,17 +10,17 @@ What's wrong with that ? The idea of having the compositor and the window manage
 A way to fix these issues this is having the WM and compositor somehow communicate or just making the WM and compositor as a single program, just like on wayland.
 
 ## Which picom forks have animations
-- (jonaburg/picom)[https://github.com/jonaburg/picom]\
+- [jonaburg/picom](https://github.com/jonaburg/picom)\
     Has some very basic animations, but they aren't enough.
     Some other forks have the same animations, but they're mostly the same.
-- dccsillag/picom, the (implement-window-animation)[https://github.com/dccsillag/picom/tree/implement-window-animations] branch\
+- dccsillag/picom, the [implement-window-animation](https://github.com/dccsillag/picom/tree/implement-window-animations) branch\
     Still very few animations. Nothing special, but it's going to be relevant for the next fork.
-- (pijulius/picom)[https://github.com/pijulius/picom]\
+- [pijulius/picom](https://github.com/pijulius/picom)\
     This is a fork of dccsillag/picom which has animations for spawning windows, killing windows, changing workspace, flipping, switching, pretty much everything.
     A big issue is that, with the most optimal configuration, it's still very glitchy and doesn't play well with floating windows.
     It also has some issues with rounded corners and borders.
     The fork is pretty much unmentained at this point.
-- (kiosion/picom)[https://github.com/kiosion/picom]\
+- [kiosion/picom](https://github.com/kiosion/picom)\
     This is forked from pijulius/picom and it has quite a few updates. It doesn't seem to have issues with rounded corners too.
     This seems to be the most up-to-date fork with good animations, so I'm going to stick with this one.
 

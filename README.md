@@ -18,7 +18,7 @@ I don't have a login gui, I just run it with startx from tty. Comes with a few s
 - SXHKD
 - Wezterm terminal (I'm still trying it out)
 - Picom (I am using [kiosion](https://github.com/kiosion/picom)' version, for the cool animations)\
-see my (rant)[PICOM-RANT.md] on compositors.
+see my [rant](PICOM-RANT.md) on compositors.
 - rofi or dmenu for launching apps, both are in the config
 - xsetroot (for the cursor)
 - xsettingsd
@@ -29,9 +29,9 @@ see my (rant)[PICOM-RANT.md] on compositors.
 - xinerama (for multiple monitors)
 - scrot (screenshots)
 - redshift (warmer colors during nighttime)
-- (uniconize)[https://github.com/neXromancers/uniconize] (solves blackscreen issues in wine)
+- [uniconize](https://github.com/neXromancers/uniconize) (solves blackscreen issues in wine)
 - lf (terminal file manager)
-- lf-ueberzug dependencies from (this)[https://github.com/slavistan/lf-gadgets] repository
+- lf-ueberzug dependencies from [this](https://github.com/slavistan/lf-gadgets) repository
 	(image preview for lf)(the scripts are already in the dotfiles)
 - dunst or something that supports notify-send (to get feedback from the scripts)
 ## Things I use
