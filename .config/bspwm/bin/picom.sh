@@ -6,5 +6,7 @@ then
 	killall picom && notify-send "killing picom"
 else
   notify-send "starting picom" &&
-	picom  --config ~/.config/bspwm/picom.conf &
+	picom \
+    --experimental-backends\
+    --config ~/.config/bspwm/picom.conf &
 fi

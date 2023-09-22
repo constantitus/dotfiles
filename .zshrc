@@ -1,29 +1,25 @@
-export EDITOR='nvim'
-export HISTFILE=~/.cache/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
-export VISUAL='nvim'
-export QT_STYLE_OVERRIDE=adwaita-dark
+# .zshrc themed without oh-my-zsh or any other bloated crap.
+# The theme may or may not be stolen from oh-my-zsh.
+# IMPORTANT: If you're running anything else besides Gentoo, modify
+# the last line. Different package managers store the syntax highlighting
+# files in different places. Have fun finding yours, lmao
 
-export MINGW32_PREFIX="/usr/bin/i686-w64-mingw32-gcc"
-export MINGW64_PREFIX="/usr/bin/x86_64-w64-mingw32-gcc"
-
-# Adding ~/bin and ~/cargo/bin to path
-PATH=$PATH$( find $HOME/bin/ -type d -printf ":%p" ):$PATH
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.dotnet/tools:$HOME/Android/Sdk/cmdline-tools/latest/bin:$HOME/yabridge:$PATH"
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export WINEPREFIX=$HOME/.wine
-export STAGING_RT_PRIORITY_SERVER=60
-export GODOT4_BIN=$HOME/bin/godot4
+#PATH=$PATH$( find $HOME/bin/ -type d -printf ":%p" ):$PATH
+export PATH="\
+    $HOME/bin:\
+    $HOME/.cargo/bin:\
+    $HOME/.local/bin:\
+    $HOME/.dotnet/tools:\
+    $HOME/Android/Sdk/cmdline-tools/latest/bin:\
+    $HOME/yabridge:\
+    $HOME/.config/bspwm/bin:\
+    $PATH"
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}＠%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 source ~/.config/zsh/kolo.zsh-theme
 
-source ~/.spotify.zsh
-
-# Basic auto/tab complete (scrambled shit from other pepole's)
+# Basic auto/tab complete (scrambled shit from other pepole's dotfiles)
 autoload -Uz compinit
 zmodload zsh/complist
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -113,18 +109,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 # sorce your aliases
 source ~/.alias
-
-## NNN
-#export NNN_OPTS="H" # 'H' shows the hidden files. Same as option -H (so 'nnn -deH')
-## export LC_COLLATE="C" # hidden files on top
-#export NNN_FIFO=/tmp/nnn.fifo # temporary buffer for the previews
-#export NNN_PLUG='o:fzopen;e:-!sudo -E nvim $nnn*;h:-!hx $nnn*;p:preview-tui;x:!chmod +x $nnn;m:!mpv $nnn'
-#
-#NNN_TMPFILE='/tmp/.lastd'
-#BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
-#export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-
-# # export SPLIT='v' # to split Kitty vertically
+source ~/.env
 
 # source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
 source ~/.config/zsh/icons.zsh

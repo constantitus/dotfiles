@@ -1,7 +1,8 @@
 # terminal emulator
 super + Return
-	alacritty
-
+	    wezterm
+super + alt + Return
+        alacritty
 super + shift + Return
         kitty
 
@@ -240,11 +241,11 @@ super + shift + {equal,minus}
         bspc config -n focused window_gap $(($(bspc config -n focused window_gap) {-,+} 3))
 
 super + alt + 3
-        bspc config border_width 0 ; bspc config window_gap 1
+        bspc config border_width 0 ;
 super + alt + 4
-        bspc config border_width 1 ; bspc config window_gap 1
+        bspc config border_width 1 ;
 super + alt + 5
-        bspc config border_width 2 ; bspc config window_gap 2
+        bspc config border_width 2 ;
 
 # some shit keeps turning my key repeat off
 # and I'm too stupid to figure out what is
