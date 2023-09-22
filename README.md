@@ -16,13 +16,15 @@ I don't have a login gui, I just run it with startx from tty. Comes with a few s
 - BSPWM
 - Polybar
 - SXHKD
-- Picom (I am using [pijulius](https://github.com/pijulius/picom)' version, for the cool animations)
+- Wezterm terminal (I'm still trying it out)
+- Picom (I am using [kiosion](https://github.com/kiosion/picom)' version, for the cool animations)\
+see my (rant)[PICOM-RANT.md] on compositors.
 - rofi or dmenu for launching apps, both are in the config
-- Alacritty or Kitty (or whichever terminal you prefer)
 - xsetroot (for the cursor)
 - xsettingsd
 - wmctrl (for polywins)
 ## Misc packages:
+- Alacritty (as a fallback terminal)
 - zsh
 - xinerama (for multiple monitors)
 - scrot (screenshots)
