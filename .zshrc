@@ -6,14 +6,14 @@
 
 #PATH=$PATH$( find $HOME/bin/ -type d -printf ":%p" ):$PATH
 export PATH="\
-    $HOME/bin:\
-    $HOME/.cargo/bin:\
-    $HOME/.local/bin:\
-    $HOME/.dotnet/tools:\
-    $HOME/Android/Sdk/cmdline-tools/latest/bin:\
-    $HOME/yabridge:\
-    $HOME/.config/bspwm/bin:\
-    $PATH"
+$HOME/bin:\
+$HOME/.cargo/bin:\
+$HOME/.local/bin:\
+$HOME/.dotnet/tools:\
+$HOME/.config/bspwm/bin:\
+$PATH"
+
+export MAKEOPTS="-j8"
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -64,7 +64,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lfu to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lfu --last-dir-path="$tmp" "$@"
+    $HOME/bin/lfu --last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
