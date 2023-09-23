@@ -84,3 +84,4 @@ polybar secondary --config=~/.config/bspwm/polybar/config.ini &
 # notifications
 dunst -config ~/.config/bspwm/dunstrc &
 
+sh ~/.config/bspwm/bin/randombg.sh

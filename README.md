@@ -56,7 +56,7 @@ sh ~/.config/bspwm/bin/launch.sh &
 sh ~/.config/bspwm/bin/pipewire.sh & # pipewire-pulse launch script
 sh ~/.config/bspwm/bspwmrc &
 sh ~/.config/bspwm/bin/bicom.sh &
-exec dbus-launch --exit-with-session bspwm -c /home/bern/.config/bspwm/bspwmrc
+exec dbus-launch --exit-with-session bspwm -c $HOME/.config/bspwm/bspwmrc
 ```
 
 ## TODO

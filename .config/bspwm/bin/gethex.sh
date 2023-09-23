@@ -3,14 +3,14 @@
 ## Stolen from https://github.com/sayan01/scripts and
 ## merged the stuff I need into a single file for convenience
 
-#usage() {
-#    echo "usage: gethex.sh [/pathtofile] [light/dark/all] [delta]"
-#    echo "l or - only light or dark hex value"
-#    echo "a - all values"
-#    echo "delta - difference between light and dark"
-#    echo "to set delta, you need to set the second argument l, d or a"
-#    exit 1
-#}
+usage() {
+    echo "usage: gethex.sh [/pathtofile] [light/dark/all] [delta]"
+    echo "l or - only light or dark hex value"
+    echo "a - all values"
+    echo "delta - difference between light and dark"
+    echo "to set delta, you need to set the second argument l, d or a"
+    exit 1
+}
 
 error(){
 	echo "$@"
@@ -60,9 +60,36 @@ tone=-${delta}
 #	"dark") tone=${delta} ;;
 #esac
 
+hex=${dc}
 
-# get accent color
-accentcolor="$(hexcolortoner "$dc" "$tone")"
+initpound=$(echo "$hex" | grep -o '^#')
+hex=$( echo "$hex" | cut -d'#' -f2)
+amount=${tone}
+
+hextoint() {
+	echo "$(( 16#$1 ))"
+}
+red=$(hextoint "$( echo "$hex" | cut -c1-2 )" )
+green=$(hextoint "$( echo "$hex" | cut -c3-4 )" )
+blue=$(hextoint "$( echo "$hex" | cut -c5-6 )" )
+(( red+=amount ))
+(( green+=amount ))
+(( blue+=amount ))
+if test "$red" -gt 255; then red=255; fi
+if test "$green" -gt 255; then green=255; fi
+if test "$blue" -gt 255; then blue=255; fi
+if test "$red" -lt 0; then red=0; fi
+if test "$green" -lt 0; then green=0; fi
+if test "$blue" -lt 0; then blue=0; fi
+inttohex() {
+    printf "%02x\n" "$1"
+}
+rh=$(inttohex $red)
+gh=$(inttohex $green)
+bh=$(inttohex $blue)
+
+accentcolor="${initpound}${rh}${gh}${bh}"
+
 # get accentcolor contrast (light or dark)
 
 # contrast="$(lord "$accentcolor")"
@@ -75,3 +102,4 @@ accentcolor="$(hexcolortoner "$dc" "$tone")"
 if [[ "$#" -eq "1" || "$2" =~ ^(a|all|l|light) ]]; then echo "$dc"; fi
 if [[ "$#" -eq "1" || "$2" =~ ^(a|all|d|dark) ]]; then echo "$accentcolor"; fi
 # echo "$textcolor"
+
