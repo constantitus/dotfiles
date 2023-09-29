@@ -124,7 +124,7 @@ label-monitor = %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-active = 
+label-active = 
 label-active-foreground = ${color.pink}
 ;;label-active-underline = ${color.BGA}
 
@@ -142,7 +142,7 @@ label-occupied-foreground = ${color.magenta}
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-urgent = 
+label-urgent = 
 label-urgent-foreground = ${color.purple}
 ;;label-urgent-underline = ${color.BGA}
 

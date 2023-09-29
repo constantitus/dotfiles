@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local gpus = wezterm.gui.enumerate_gpus()
+local act = wezterm.action
 
 -- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
@@ -7,14 +8,17 @@ local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 local Grey = "#0f1419"
 local LightGrey = "#191f26"
 
-local TAB_BAR_BG = "Black"
-local ACTIVE_TAB_BG = "Yellow"
-local ACTIVE_TAB_FG = "Black"
-local HOVER_TAB_BG = Grey
-local HOVER_TAB_FG = "White"
-local NORMAL_TAB_BG = LightGrey
-local NORMAL_TAB_FG = "White"
+local TAB_BAR_BG = "#121222"
+local ACTIVE_TAB_BG = "#8581c6"
+local ACTIVE_TAB_FG = "#cdd6f4"
+local HOVER_TAB_BG = "#121222"
+local HOVER_TAB_FG = "#cdd6f4"
+local NORMAL_TAB_BG = "0a0a19"
+local NORMAL_TAB_FG = "#cdd6f4"
 
+local BGCOLOR1 = "#242437"
+local BGCOLOR2 = "#1a1a32"
+local BGCOLOR3 = "#121222"
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
     panes = panes
@@ -86,8 +90,7 @@ return {
         brightness = 0.5,
     },
 
-    color_scheme = "Catppuccin Mocha",
-    --color_scheme = "duskfox",
+    color_scheme = "",
     colors = {
         tab_bar = {
             background = TAB_BAR_BG,
@@ -96,16 +99,16 @@ return {
 
     tab_bar_style = {
         new_tab = wezterm.format{
-            {Background={Color=HOVER_TAB_BG}},			{Foreground={Color=TAB_BAR_BG}},			{Text=SOLID_RIGHT_ARROW}, {Background={Color=HOVER_TAB_BG}}, {Foreground={Color=HOVER_TAB_FG}},
+            {Background={Color=HOVER_TAB_BG}},	{Foreground={Color=TAB_BAR_BG}},	{Text=SOLID_RIGHT_ARROW}, {Background={Color=HOVER_TAB_BG}}, {Foreground={Color=HOVER_TAB_FG}},
             {Text=" + "},
-            {Background={Color=TAB_BAR_BG}},			{Foreground={Color=HOVER_TAB_BG}},          {Text=SOLID_RIGHT_ARROW},
+            {Background={Color=TAB_BAR_BG}},	{Foreground={Color=HOVER_TAB_BG}},  {Text=SOLID_RIGHT_ARROW},
         },
         new_tab_hover = wezterm.format{
             {Attribute={Italic=false}},
             {Attribute={Intensity="Bold"}},
-            {Background={Color=NORMAL_TAB_BG}},		    {Foreground={Color=TAB_BAR_BG}},			{Text=SOLID_RIGHT_ARROW}, {Background={Color=NORMAL_TAB_BG}}, {Foreground={Color=NORMAL_TAB_FG}},
+            {Background={Color=NORMAL_TAB_BG}},	{Foreground={Color=TAB_BAR_BG}},	{Text=SOLID_RIGHT_ARROW}, {Background={Color=NORMAL_TAB_BG}}, {Foreground={Color=NORMAL_TAB_FG}},
             {Text=" + "},
-            {Background={Color=TAB_BAR_BG}},			{Foreground={Color=NORMAL_TAB_BG}},	    {Text=SOLID_RIGHT_ARROW},
+            {Background={Color=TAB_BAR_BG}},	{Foreground={Color=NORMAL_TAB_BG}},	{Text=SOLID_RIGHT_ARROW},
         },
     },
 
@@ -120,30 +123,60 @@ return {
     window_background_gradient={
         orientation = "Vertical",
         colors = {
-            "#242437",
-            "#1a1a32",
-            "#121222"
+            BGCOLOR1,
+            BGCOLOR2,
+            BGCOLOR3,
         },
         blend = "Rgb",
     },
     text_background_opacity = 1, --0.95
+    disable_default_key_bindings = true,
 
-    audible_bell = "Disabled", -- fuck OFF
+    audible_bell = "Disabled", -- WHAT THE FUCK, MY EARS!@#@#!@!#!@#!@#
     window_close_confirmation = 'NeverPrompt',
     skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
     keys = {
-        { key="-",  mods="ALT", action=wezterm.action{ SplitVertical={ domain="CurrentPaneDomain" } } },
-        { key="\\", mods="ALT", action=wezterm.action{ SplitHorizontal={ domain="CurrentPaneDomain" } } },
-        { key="h",  mods="ALT", action=wezterm.action{ ActivatePaneDirection="Left" } },
-        { key="l",  mods="ALT", action=wezterm.action{ ActivatePaneDirection="Right" } },
-        { key="j",  mods="ALT", action=wezterm.action{ ActivatePaneDirection="Down" } },
-        { key="k",  mods="ALT", action=wezterm.action{ ActivatePaneDirection="Up" } },
-        { key="w",  mods="ALT", action=wezterm.action{ CloseCurrentPane={confirm=false} } },
-        { key="w",  mods="CTRL|ALT", action = wezterm.action.CloseCurrentTab { confirm = false } },
-        { key="h",  mods="CTRL|ALT", action = wezterm.action.AdjustPaneSize { 'Left', 1 } },
-        { key="l",  mods="CTRL|ALT", action = wezterm.action.AdjustPaneSize { 'Right', 1 } },
-        { key="j",  mods="CTRL|ALT", action = wezterm.action.AdjustPaneSize { 'Down', 1 } },
-        { key="k",  mods="CTRL|ALT", action = wezterm.action.AdjustPaneSize { 'Up', 1 } },
+        -- Split actions
+        { key="-",  mods = "ALT",           action = act{ SplitVertical={ domain="CurrentPaneDomain" } } },
+        { key="\\", mods = "ALT",           action = act{ SplitHorizontal={ domain="CurrentPaneDomain" } } },
+        { key="h",  mods = "ALT",           action = act{ ActivatePaneDirection="Left" } },
+        { key="l",  mods = "ALT",           action = act{ ActivatePaneDirection="Right" } },
+        { key="j",  mods = "ALT",           action = act{ ActivatePaneDirection="Down" } },
+        { key="k",  mods = "ALT",           action = act{ ActivatePaneDirection="Up" } },
+        { key="w",  mods = "ALT",           action = act{ CloseCurrentPane={confirm=false} } },
+        { key="w",  mods = "CTRL|ALT",      action = act.CloseCurrentTab { confirm = false } },
+        { key="h",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Left', 1 } },
+        { key="l",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Right', 1 } },
+        { key="j",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Down', 1 } },
+        { key="k",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Up', 1 } },
+        -- Tab actions                      
+        { key="t",  mods = 'ALT',           action = act.SpawnTab 'DefaultDomain' },
+        { key="t",  mods = 'CTRL|ALT',      action = act.ShowTabNavigator },
+        { key="h",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(-1) },
+        { key="l",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(1) },
+        { key="h", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(-1) },
+        { key="l", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(1) },
+        { key="1",  mods = 'CTRL|ALT',      action = act.ActivateTab(0) },
+        { key="2",  mods = 'CTRL|ALT',      action = act.ActivateTab(1) },
+        { key="3",  mods = 'CTRL|ALT',      action = act.ActivateTab(2) },
+        { key="4",  mods = 'CTRL|ALT',      action = act.ActivateTab(3) },
+        { key="5",  mods = 'CTRL|ALT',      action = act.ActivateTab(4) },
+        { key="6",  mods = 'CTRL|ALT',      action = act.ActivateTab(5) },
+        { key="7",  mods = 'CTRL|ALT',      action = act.ActivateTab(6) },
+        { key="8",  mods = 'CTRL|ALT',      action = act.ActivateTab(7) },
+        { key="9",  mods = 'CTRL|ALT',      action = act.ActivateTab(8) },
+        -- misc                             
+        { key="c",  mods = 'CTRL|SHIFT',    action = act{ CopyTo="Clipboard" } },
+        { key="v",  mods = 'CTRL|SHIFT',    action = act{ PasteFrom="Clipboard" } },
+        { key="f",  mods = 'CTRL|SHIFT',    action = act.Search{ CaseSensitiveString="" } },
+        { key="x",  mods = 'CTRL|SHIFT',    action = act.ActivateCopyMode },
+        { key="Space", mods = 'CTRL|SHIFT', action = act.QuickSelect },
+        { key="p",  mods = 'CTRL|SHIFT',    action = act.ActivateCommandPalette },
+        { key="l",  mods = 'CTRL|SHIFT',    action = act.ShowDebugOverlay },
+        { key="m",  mods = 'CTRL|ALT',      action = act.Hide },
+        { key="-",  mods = 'CTRL|SHIFT',    action = act.DecreaseFontSize },
+        { key="=",  mods = 'CTRL|SHIFT',    action = act.IncreaseFontSize },
+        { key="0",  mods = 'CTRL|SHIFT',    action = act.ResetFontSize },
     },
     --[[webgpu_preferred_adapter = {
         backend = 'Vulkan',

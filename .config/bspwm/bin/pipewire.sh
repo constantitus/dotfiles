@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 # For some reason, having pipewire-pulse work on
 # my system was an apsolute pain in the ass.
 # This sctipt works so I ain't touching it no more.
