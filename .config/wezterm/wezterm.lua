@@ -5,9 +5,6 @@ local act = wezterm.action
 -- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local Grey = "#0f1419"
-local LightGrey = "#191f26"
-
 local TAB_BAR_BG = "#121222"
 local ACTIVE_TAB_BG = "#8581c6"
 local ACTIVE_TAB_FG = "#cdd6f4"
@@ -19,6 +16,29 @@ local NORMAL_TAB_FG = "#cdd6f4"
 local BGCOLOR1 = "#242437"
 local BGCOLOR2 = "#1a1a32"
 local BGCOLOR3 = "#121222"
+
+wezterm.on('user-var-changed', function(window, pane, name, value)
+    local overrides = window:get_config_overrides() or {}
+    if name == "ZEN_MODE" then
+        local incremental = value:find("+")
+        local number_value = tonumber(value)
+        if incremental ~= nil then
+            while (number_value > 0) do
+                window:perform_action(wezterm.action.IncreaseFontSize, pane)
+                number_value = number_value - 1
+            end
+            overrides.enable_tab_bar = false
+        elseif number_value < 0 then
+            window:perform_action(wezterm.action.ResetFontSize, pane)
+            overrides.font_size = nil
+            overrides.enable_tab_bar = true
+        else
+            overrides.font_size = number_value
+            overrides.enable_tab_bar = false
+        end
+    end
+    window:set_config_overrides(overrides)
+end)
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
     panes = panes
@@ -150,7 +170,7 @@ return {
         { key="j",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Down', 1 } },
         { key="k",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Up', 1 } },
         -- Tab actions                      
-        { key="t",  mods = 'ALT',           action = act.SpawnTab 'DefaultDomain' },
+        { key="t",  mods = 'ALT',           action = act.SpawnTab 'CurrentPaneDomain' },
         { key="t",  mods = 'CTRL|ALT',      action = act.ShowTabNavigator },
         { key="h",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(-1) },
         { key="l",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(1) },
