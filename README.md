@@ -31,8 +31,8 @@ see my [rant](PICOM-RANT.md) on compositors.
 - redshift (warmer colors during nighttime)
 - [uniconize](https://github.com/neXromancers/uniconize) (solves blackscreen issues in wine)
 - lf (terminal file manager)
-- lf-ueberzug dependencies from [this](https://github.com/slavistan/lf-gadgets) repository
-	(image preview for lf)(the scripts are already in the dotfiles)
+- ~~lf-ueberzug dependencies from [this](https://github.com/slavistan/lf-gadgets) repository (image preview for lf)~~
+- [ueberzug++](https://github.com/jstkdng/ueberzugpp)
 - dunst or something that supports notify-send (to get feedback from the scripts)
 ## Things I use
 - Neovim

@@ -94,7 +94,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
 end)
 
 return {
-    window_decorations = "RESIZE",
+    window_decorations = "NONE",
     native_macos_fullscreen_mode = true,
 
 
@@ -110,7 +110,7 @@ return {
         brightness = 0.5,
     },
 
-    color_scheme = "",
+    color_scheme = "Catppuccin Mocha",
     colors = {
         tab_bar = {
             background = TAB_BAR_BG,
@@ -152,6 +152,8 @@ return {
     text_background_opacity = 1, --0.95
     disable_default_key_bindings = true,
 
+    scrollback_lines = 20000,
+
     audible_bell = "Disabled", -- WHAT THE FUCK, MY EARS!@#@#!@!#!@#!@#
     window_close_confirmation = 'NeverPrompt',
     skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
@@ -165,10 +167,10 @@ return {
         { key="k",  mods = "ALT",           action = act{ ActivatePaneDirection="Up" } },
         { key="w",  mods = "ALT",           action = act{ CloseCurrentPane={confirm=false} } },
         { key="w",  mods = "CTRL|ALT",      action = act.CloseCurrentTab { confirm = false } },
-        { key="h",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Left', 1 } },
-        { key="l",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Right', 1 } },
-        { key="j",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Down', 1 } },
-        { key="k",  mods = "CTRL|ALT",      action = act.AdjustPaneSize { 'Up', 1 } },
+        { key="h",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Left', 1 } },
+        { key="l",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Right', 1 } },
+        { key="j",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Down', 1 } },
+        { key="k",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Up', 1 } },
         -- Tab actions                      
         { key="t",  mods = 'ALT',           action = act.SpawnTab 'CurrentPaneDomain' },
         { key="t",  mods = 'CTRL|ALT',      action = act.ShowTabNavigator },
@@ -194,9 +196,9 @@ return {
         { key="p",  mods = 'CTRL|SHIFT',    action = act.ActivateCommandPalette },
         { key="l",  mods = 'CTRL|SHIFT',    action = act.ShowDebugOverlay },
         { key="m",  mods = 'CTRL|ALT',      action = act.Hide },
-        { key="-",  mods = 'CTRL|SHIFT',    action = act.DecreaseFontSize },
-        { key="=",  mods = 'CTRL|SHIFT',    action = act.IncreaseFontSize },
-        { key="0",  mods = 'CTRL|SHIFT',    action = act.ResetFontSize },
+        { key="-",  mods = 'CTRL',    action = act.DecreaseFontSize },
+        { key="=",  mods = 'CTRL',    action = act.IncreaseFontSize },
+        { key="0",  mods = 'CTRL',    action = act.ResetFontSize },
     },
     --[[webgpu_preferred_adapter = {
         backend = 'Vulkan',
@@ -211,6 +213,7 @@ return {
     webgpu_preferred_adapter = gpus[1],
     front_end = 'WebGpu',
 
+    hide_mouse_cursor_when_typing = false,
     animation_fps = 60,
     max_fps = 144,
 }
