@@ -9,8 +9,6 @@ export PATH="\
 $HOME/bin:\
 $HOME/.cargo/bin:\
 $HOME/.local/bin:\
-$HOME/.dotnet/tools:\
-$HOME/.config/bspwm/bin:\
 $PATH"
 
 export MAKEOPTS="-j8"
@@ -76,6 +74,9 @@ bindkey -s '^o' 'lfcd\n'
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+bindkey -s '^f' 'fg\n'
+bindkey -s '^r' 'nvim\n'
 
 bindkey '^[[1;5C' forward-word                    # ctrl + ->
 bindkey '^[[1;5D' backward-word                   # ctrl + <-

@@ -51,6 +51,7 @@ bspc rule -a hl2_linux desktop=1 state=floating rectangle=1920x1080+0+0
 bspc rule -a discord-screenaudio desktop=5
 bspc rule -a steam_proton border=off
 bspc rule -a wine border=off
+bspc rule -a Carla2 state=floating
 
 # bspc rule -a Game state=floating
 # bspc rule -a Conky sticky=on manage=off lower=on # I don't use conky

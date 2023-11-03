@@ -158,7 +158,7 @@ return {
     window_close_confirmation = 'NeverPrompt',
     skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
     keys = {
-        -- Split actions
+        -- Pane actions
         { key="-",  mods = "ALT",           action = act{ SplitVertical={ domain="CurrentPaneDomain" } } },
         { key="\\", mods = "ALT",           action = act{ SplitHorizontal={ domain="CurrentPaneDomain" } } },
         { key="h",  mods = "ALT",           action = act{ ActivatePaneDirection="Left" } },
@@ -167,10 +167,26 @@ return {
         { key="k",  mods = "ALT",           action = act{ ActivatePaneDirection="Up" } },
         { key="w",  mods = "ALT",           action = act{ CloseCurrentPane={confirm=false} } },
         { key="w",  mods = "CTRL|ALT",      action = act.CloseCurrentTab { confirm = false } },
-        { key="h",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Left', 1 } },
-        { key="l",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Right', 1 } },
-        { key="j",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Down', 1 } },
-        { key="k",  mods = "SHIFT|ALT",      action = act.AdjustPaneSize { 'Up', 1 } },
+        { key="h",  mods = "SHIFT|ALT",     action = act.AdjustPaneSize { 'Left', 1 } },
+        { key="l",  mods = "SHIFT|ALT",     action = act.AdjustPaneSize { 'Right', 1 } },
+        { key="j",  mods = "SHIFT|ALT",     action = act.AdjustPaneSize { 'Down', 1 } },
+        { key="k",  mods = "SHIFT|ALT",     action = act.AdjustPaneSize { 'Up', 1 } },
+        { key="r",  mods = "ALT",           action = act.RotatePanes "Clockwise" },
+        { key="r",  mods = "SHIFT|ALT",     action = act.RotatePanes "CounterClockwise" },
+        {
+            key="u",  mods = "SHIFT|ALT",
+            action = wezterm.action_callback(function(_, pane)
+                pane:move_to_new_window()
+            end),
+        },
+        {
+            key = "t",
+            mods = "SHIFT|ALT",
+            action = wezterm.action_callback(function(_, pane)
+                pane:move_to_new_tab()
+            end),
+        },
+
         -- Tab actions                      
         { key="t",  mods = 'ALT',           action = act.SpawnTab 'CurrentPaneDomain' },
         { key="t",  mods = 'CTRL|ALT',      action = act.ShowTabNavigator },
@@ -178,15 +194,15 @@ return {
         { key="l",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(1) },
         { key="h", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(-1) },
         { key="l", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(1) },
-        { key="1",  mods = 'CTRL|ALT',      action = act.ActivateTab(0) },
-        { key="2",  mods = 'CTRL|ALT',      action = act.ActivateTab(1) },
-        { key="3",  mods = 'CTRL|ALT',      action = act.ActivateTab(2) },
-        { key="4",  mods = 'CTRL|ALT',      action = act.ActivateTab(3) },
-        { key="5",  mods = 'CTRL|ALT',      action = act.ActivateTab(4) },
-        { key="6",  mods = 'CTRL|ALT',      action = act.ActivateTab(5) },
-        { key="7",  mods = 'CTRL|ALT',      action = act.ActivateTab(6) },
-        { key="8",  mods = 'CTRL|ALT',      action = act.ActivateTab(7) },
-        { key="9",  mods = 'CTRL|ALT',      action = act.ActivateTab(8) },
+        { key="1",  mods = 'ALT',           action = act.ActivateTab(0) },
+        { key="2",  mods = 'ALT',           action = act.ActivateTab(1) },
+        { key="3",  mods = 'ALT',           action = act.ActivateTab(2) },
+        { key="4",  mods = 'ALT',           action = act.ActivateTab(3) },
+        { key="5",  mods = 'ALT',           action = act.ActivateTab(4) },
+        { key="6",  mods = 'ALT',           action = act.ActivateTab(5) },
+        { key="7",  mods = 'ALT',           action = act.ActivateTab(6) },
+        { key="8",  mods = 'ALT',           action = act.ActivateTab(7) },
+        { key="9",  mods = 'ALT',           action = act.ActivateTab(8) },
         -- misc                             
         { key="c",  mods = 'CTRL|SHIFT',    action = act{ CopyTo="Clipboard" } },
         { key="v",  mods = 'CTRL|SHIFT',    action = act{ PasteFrom="Clipboard" } },
@@ -196,9 +212,9 @@ return {
         { key="p",  mods = 'CTRL|SHIFT',    action = act.ActivateCommandPalette },
         { key="l",  mods = 'CTRL|SHIFT',    action = act.ShowDebugOverlay },
         { key="m",  mods = 'CTRL|ALT',      action = act.Hide },
-        { key="-",  mods = 'CTRL',    action = act.DecreaseFontSize },
-        { key="=",  mods = 'CTRL',    action = act.IncreaseFontSize },
-        { key="0",  mods = 'CTRL',    action = act.ResetFontSize },
+        { key="-",  mods = 'CTRL',          action = act.DecreaseFontSize },
+        { key="=",  mods = 'CTRL',          action = act.IncreaseFontSize },
+        { key="0",  mods = 'CTRL',          action = act.ResetFontSize },
     },
     --[[webgpu_preferred_adapter = {
         backend = 'Vulkan',

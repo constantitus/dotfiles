@@ -1,6 +1,3 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:constantitus/nvim
-[submodule ".config/alacritty/catppuccin"]
-	path = .config/alacritty/catppuccin
-	url = https://github.com/catppuccin/alacritty

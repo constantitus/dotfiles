@@ -1,0 +1,11 @@
+#!/bin/sh
+if [[ $# -eq 2 ]]; then
+    gap=$(hyprctl getoption general:$1 | awk 'FNR == 2 {print $2}')
+    gap=$((gap +$2))
+    hyprctl keyword general:$1 $gap
+else
+    gapin=$(hyprctl getoption general:gaps_in | awk 'FNR == 2 {print $2}')
+    gapout=$(hyprctl getoption general:gaps_out | awk 'FNR == 2 {print $2}')
+    hyprctl keyword general:gaps_in $((gapin +$1))
+    hyprctl keyword general:gaps_out $((gapout +$1*2))
+fi

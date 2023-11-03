@@ -1,0 +1,189 @@
+monitor=DisplayPort-1,highrr, auto, 1
+monitor=HDMI-A-1,highrr, auto, 1
+
+env = XCURSOR_SIZE,24
+env = XMODIFIERS, @im=ibus
+env = GTK_IM_MODULE, ibus
+env = QT_IM_MODULE, ibus
+env = QT_QPA_PLATFORMTHEME, qt5ct
+env = WLR_NO_HARDWARE_CURSORS, 1
+
+############################## Input ##############################
+input {
+    # Mouse
+    # accel_profile = adaptive
+    force_no_accel = false
+    #sensitivity = 0
+
+    # Keyboard
+    kb_layout = us
+    follow_mouse = 1
+    numlock_by_default = true
+
+    touchpad {
+        natural_scroll = yes
+        disable_while_typing = true
+        clickfinger_behavior = true
+        scroll_factor = 0.5
+    }
+    scroll_method = 2fg
+}
+gestures {
+    workspace_swipe = true
+    workspace_swipe_distance = 1200px
+    workspace_swipe_fingers = 4
+    workspace_swipe_cancel_ratio = 0.2
+    workspace_swipe_min_speed_to_force = 5
+    
+    workspace_swipe_create_new = true
+    
+}
+
+general {
+    max_fps = 144
+    # Gaps and border
+    gaps_in = 4
+    gaps_out = 4
+    border_size = 1
+    
+    # Fallback colors
+    col.active_border = rgba(0DB7D4FF) rgba(7AA2F7FF) rgba(9778D0FF) 45deg
+    col.inactive_border = rgba(04404aaa)
+
+    # Functionality
+    # resize_on_border = true
+    no_focus_fallback = true
+    layout = dwindle
+    
+    #focus_to_other_workspaces = true
+}
+
+dwindle {
+	preserve_split = true # you definitely want this
+	#no_gaps_when_only = true
+	smart_resizing = false
+}
+
+decoration {
+    rounding = 2
+    
+    blur {
+        enabled = off
+        xray = true
+        size = 12
+        passes = 4
+        new_optimizations = on
+        
+        noise = 0.02
+        contrast = 1.6
+        brightness = 1.1
+        
+        #contrast = 1
+        #brightness = 1
+    }
+
+    # Shadow
+    drop_shadow = false
+    shadow_range = 30
+    shadow_render_power = 10
+    col.shadow = rgba(2D3031FF)
+
+    # Shader
+    # screen_shader = ~/.config/hypr/shaders/nothing.frag
+    # screen_shader = ~/.config/hypr/shaders/vibrance.frag
+
+    # Dim
+    dim_inactive = false
+    dim_strength = 0.1
+    dim_special = 0
+}
+
+animations {
+    enabled = true
+    # Animation curves
+    
+    bezier = md3_standard, 0.2, 0, 0, 1
+    bezier = md3_decel, 0.05, 0.7, 0.1, 1
+    bezier = md3_accel, 0.3, 0, 0.8, 0.15
+    bezier = overshot, 0.05, 0.9, 0.1, 1.1
+    bezier = crazyshot, 0.1, 1.5, 0.76, 0.92 
+    bezier = hyprnostretch, 0.05, 0.9, 0.1, 1.0
+    bezier = fluent_decel, 0.1, 1, 0, 1
+    # Animation configs
+    animation = windows, 1, 2, md3_decel, popin 80%
+    animation = border, 1, 10, default
+    animation = fade, 1, 2, default
+    animation = workspaces, 1, 3, md3_decel
+    animation = specialWorkspace, 1, 3, md3_decel, slidevert
+}
+
+misc {
+    vfr = 1
+    vrr = 1
+    focus_on_activate = true
+    animate_manual_resizes = false
+    animate_mouse_windowdragging = false
+    #suppress_portal_warnings = true
+    enable_swallow = true
+    
+    #disable_hyprland_logo = true
+    force_hypr_chan = true
+}
+
+debug {
+	#overlay = true
+	damage_tracking = 1
+	#damage_blink = yes
+}
+
+decoration {
+  #screen_shader = ~/.config/hypr/shaders/drugs.frag
+  #screen_shader = ~/.config/hypr/shaders/crt.frag
+}
+
+######## Window rules ########
+# windowrule = float, ^(steam)$
+# windowrule = float, ^(guifetch)$
+
+bind = SUPER, RETURN, exec, wezterm-gui
+bind = SUPER, W, killactive, 
+bind = SUPERALT, escape, exit, 
+bind = SUPER, S, togglefloating, 
+bind = SUPER, space, exec, $HOME/.config/rofi/launchers/type-3/launcher.sh
+bind = SUPERALT, space, exec, dmenu_run -b
+bind = SUPER SHIFT, T, pseudo, # dwindle
+bind = SUPERALT, J, togglesplit, # dwindle
+
+# Move focus
+bind = SUPER, H, movefocus, l
+bind = SUPER, L, movefocus, r
+bind = SUPER, K, movefocus, u
+bind = SUPER, J, movefocus, d
+
+# Switch workspaces
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+bind = SUPER, 6, workspace, 6
+bind = SUPER, 7, workspace, 7
+bind = SUPER, 8, workspace, 8
+
+# Move active window to a workspace
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+bind = SUPER SHIFT, 6, movetoworkspace, 6
+bind = SUPER SHIFT, 7, movetoworkspace, 7
+bind = SUPER SHIFT, 8, movetoworkspace, 8
+
+# Scroll through existing workspaces with mainMod + scroll
+# bind = SUPER, mouse_down, workspace, e+1
+# bind = SUPER, mouse_up, workspace, e-1
+
+# Move/resize windows
+bindm = SUPER, mouse:272, movewindow
+bindm = SUPER, mouse:273, resizewindow

@@ -10,7 +10,7 @@ rnd="$RANDOM$RANDOM$RANDOM"
 # fi
 
 if [[ "$1" =~ ^(l|landscape|-l)$ ]]; then
-    set -- ~/Pictures/Wallpapers/*
+    set -- ~/Pictures/Wallpapers/Landscape/*
     file="$(eval 'echo "${'$((1 + $rnd % $#))'}"')"
     feh --bg-fill "$file"
     echo $file
@@ -18,7 +18,7 @@ if [[ "$1" =~ ^(l|landscape|-l)$ ]]; then
     dc=`$HOME/.config/bspwm/bin/gethex.sh "$file" "d"`
 
 elif [[ "$1" =~ ^(p|portrait|-p)$ ]]; then
-    set -- ~/Pictures/Wallpapers/*
+    set -- ~/Pictures/Wallpapers/Portrait/*
     file="$(eval 'echo "${'$((1 + $rnd % $#))'}"')"
     feh --bg-fill "$file"
     # feh --geometry "$g" --bg-fill "$file"
