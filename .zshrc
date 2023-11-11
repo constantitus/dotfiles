@@ -9,13 +9,21 @@ export PATH="\
 $HOME/bin:\
 $HOME/.cargo/bin:\
 $HOME/.local/bin:\
+$HOME/.dotnet/tools:\
+$HOME/Android/Sdk/cmdline-tools/latest/bin:\
+$HOME/yabridge:\
+$HOME/.config/bspwm/bin:\
 $PATH"
 
 export MAKEOPTS="-j8"
 
-# Enable colors and change prompt:
+# Enable colors:
 autoload -U colors && colors
-source ~/.config/zsh/kolo.zsh-theme
+
+# Source prompt
+# source ~/.config/zsh/kolo.zsh-theme
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # Basic auto/tab complete (scrambled shit from other pepole's dotfiles)
 autoload -Uz compinit
