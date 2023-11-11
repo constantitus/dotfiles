@@ -86,6 +86,8 @@ bindkey '^e' edit-command-line
 bindkey -s '^f' 'fg\n'
 bindkey -s '^r' 'nvim\n'
 
+bindkey '^t' history-incremental-search-backward
+
 bindkey '^[[1;5C' forward-word                    # ctrl + ->
 bindkey '^[[1;5D' backward-word                   # ctrl + <-
 bindkey ' ' magic-space
