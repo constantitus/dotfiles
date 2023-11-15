@@ -8,7 +8,6 @@
 
 ## About
 My dotfiles and scripts for hyprland and some other things I use.\
-*This repo used to contain my bspwm dotfiles. I've switched to hyprland, but my old dotfiles are still here*
 
 ## Dependencies:
 - Hyprland (obviously)
