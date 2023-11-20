@@ -13,7 +13,7 @@ style = 'bold peach'
 
 [time]
 disabled = false
-time_format = '%H:%m'
+time_format = '%H:%M'
 style = 'peach'
 
 [cmd_duration]
