@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local gpus = wezterm.gui.enumerate_gpus()
 local act = wezterm.action
 
@@ -13,11 +13,11 @@ local HOVER_TAB_FG = "#cdd6f4"
 local NORMAL_TAB_BG = "0a0a19"
 local NORMAL_TAB_FG = "#cdd6f4"
 
-local BGCOLOR1 = "#242437"
-local BGCOLOR2 = "#1a1a32"
-local BGCOLOR3 = "#121222"
+local BGCOLOR1 = "#000013"
+local BGCOLOR2 = "#000018"
+local BGCOLOR3 = "#00000f"
 
-wezterm.on('user-var-changed', function(window, pane, name, value)
+wezterm.on("user-var-changed", function(window, pane, name, value)
     local overrides = window:get_config_overrides() or {}
     if name == "ZEN_MODE" then
         local incremental = value:find("+")
@@ -40,7 +40,7 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
     window:set_config_overrides(overrides)
 end)
 
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
     panes = panes
     config = config
     max_width = max_width
@@ -93,10 +93,11 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     }
 end)
 
-return {
+local config = {
     window_decorations = "NONE",
     native_macos_fullscreen_mode = true,
-
+    warn_about_missing_glyphs = false,
+    enable_kitty_graphics = true,
 
     hide_tab_bar_if_only_one_tab = true,
     tab_bar_at_bottom = true,
@@ -119,22 +120,38 @@ return {
 
     tab_bar_style = {
         new_tab = wezterm.format{
-            {Background={Color=HOVER_TAB_BG}},	{Foreground={Color=TAB_BAR_BG}},	{Text=SOLID_RIGHT_ARROW}, {Background={Color=HOVER_TAB_BG}}, {Foreground={Color=HOVER_TAB_FG}},
+            {Background={Color=HOVER_TAB_BG}},
+            {Foreground={Color=TAB_BAR_BG}},
+            {Text=SOLID_RIGHT_ARROW},
+            {Background={Color=HOVER_TAB_BG}},
+            {Foreground={Color=HOVER_TAB_FG}},
+
             {Text=" + "},
-            {Background={Color=TAB_BAR_BG}},	{Foreground={Color=HOVER_TAB_BG}},  {Text=SOLID_RIGHT_ARROW},
+
+            {Background={Color=TAB_BAR_BG}},
+            {Foreground={Color=HOVER_TAB_BG}},
+            {Text=SOLID_RIGHT_ARROW},
         },
         new_tab_hover = wezterm.format{
             {Attribute={Italic=false}},
             {Attribute={Intensity="Bold"}},
-            {Background={Color=NORMAL_TAB_BG}},	{Foreground={Color=TAB_BAR_BG}},	{Text=SOLID_RIGHT_ARROW}, {Background={Color=NORMAL_TAB_BG}}, {Foreground={Color=NORMAL_TAB_FG}},
+            {Background={Color=NORMAL_TAB_BG}},
+            {Foreground={Color=TAB_BAR_BG}},
+            {Text=SOLID_RIGHT_ARROW},
+            {Background={Color=NORMAL_TAB_BG}},
+            {Foreground={Color=NORMAL_TAB_FG}},
+
             {Text=" + "},
-            {Background={Color=TAB_BAR_BG}},	{Foreground={Color=NORMAL_TAB_BG}},	{Text=SOLID_RIGHT_ARROW},
+
+            {Background={Color=TAB_BAR_BG}},
+            {Foreground={Color=NORMAL_TAB_BG}},
+            {Text=SOLID_RIGHT_ARROW},
         },
     },
 
     bold_brightens_ansi_colors = true,
     window_background_opacity = 0.7,
-    default_cursor_style = 'SteadyBlock',
+    default_cursor_style = "SteadyBlock",
     font_size = 12,
     force_reverse_video_cursor = true,
     font = wezterm.font({
@@ -155,8 +172,8 @@ return {
     scrollback_lines = 20000,
 
     audible_bell = "Disabled", -- WHAT THE FUCK, MY EARS!@#@#!@!#!@#!@#
-    window_close_confirmation = 'NeverPrompt',
-    skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh', 'fish', 'tmux' },
+    window_close_confirmation = "NeverPrompt",
+    skip_close_confirmation_for_processes_named = { "bash", "sh", "zsh", "fish", "tmux" },
     keys = {
         -- Pane actions
         { key="-",  mods = "ALT",           action = act{ SplitVertical={ domain="CurrentPaneDomain" } } },
@@ -188,48 +205,50 @@ return {
         },
 
         -- Tab actions                      
-        { key="t",  mods = 'ALT',           action = act.SpawnTab 'CurrentPaneDomain' },
-        { key="t",  mods = 'CTRL|ALT',      action = act.ShowTabNavigator },
-        { key="h",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(-1) },
-        { key="l",  mods = 'CTRL|ALT',      action = act.ActivateTabRelative(1) },
-        { key="h", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(-1) },
-        { key="l", mods = 'CTRL|ALT|SHIFT', action = act.MoveTabRelative(1) },
-        { key="1",  mods = 'ALT',           action = act.ActivateTab(0) },
-        { key="2",  mods = 'ALT',           action = act.ActivateTab(1) },
-        { key="3",  mods = 'ALT',           action = act.ActivateTab(2) },
-        { key="4",  mods = 'ALT',           action = act.ActivateTab(3) },
-        { key="5",  mods = 'ALT',           action = act.ActivateTab(4) },
-        { key="6",  mods = 'ALT',           action = act.ActivateTab(5) },
-        { key="7",  mods = 'ALT',           action = act.ActivateTab(6) },
-        { key="8",  mods = 'ALT',           action = act.ActivateTab(7) },
-        { key="9",  mods = 'ALT',           action = act.ActivateTab(8) },
+        { key="t",  mods = "ALT",           action = act.SpawnTab "CurrentPaneDomain" },
+        { key="t",  mods = "CTRL|ALT",      action = act.ShowTabNavigator },
+        { key="h",  mods = "CTRL|ALT",      action = act.ActivateTabRelative(-1) },
+        { key="l",  mods = "CTRL|ALT",      action = act.ActivateTabRelative(1) },
+        { key="h", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(-1) },
+        { key="l", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(1) },
+        { key="1",  mods = "ALT",           action = act.ActivateTab(0) },
+        { key="2",  mods = "ALT",           action = act.ActivateTab(1) },
+        { key="3",  mods = "ALT",           action = act.ActivateTab(2) },
+        { key="4",  mods = "ALT",           action = act.ActivateTab(3) },
+        { key="5",  mods = "ALT",           action = act.ActivateTab(4) },
+        { key="6",  mods = "ALT",           action = act.ActivateTab(5) },
+        { key="7",  mods = "ALT",           action = act.ActivateTab(6) },
+        { key="8",  mods = "ALT",           action = act.ActivateTab(7) },
+        { key="9",  mods = "ALT",           action = act.ActivateTab(8) },
         -- misc                             
-        { key="c",  mods = 'CTRL|SHIFT',    action = act{ CopyTo="Clipboard" } },
-        { key="v",  mods = 'CTRL|SHIFT',    action = act{ PasteFrom="Clipboard" } },
-        { key="f",  mods = 'CTRL|SHIFT',    action = act.Search{ CaseSensitiveString="" } },
-        { key="x",  mods = 'CTRL|SHIFT',    action = act.ActivateCopyMode },
-        { key="Space", mods = 'CTRL|SHIFT', action = act.QuickSelect },
-        { key="p",  mods = 'CTRL|SHIFT',    action = act.ActivateCommandPalette },
-        { key="l",  mods = 'CTRL|SHIFT',    action = act.ShowDebugOverlay },
-        { key="m",  mods = 'CTRL|ALT',      action = act.Hide },
-        { key="-",  mods = 'CTRL',          action = act.DecreaseFontSize },
-        { key="=",  mods = 'CTRL',          action = act.IncreaseFontSize },
-        { key="0",  mods = 'CTRL',          action = act.ResetFontSize },
+        { key="c",  mods = "CTRL|ALT",    action = act{ CopyTo="Clipboard" } },
+        { key="v",  mods = "CTRL|SHIFT",    action = act{ PasteFrom="Clipboard" } },
+        { key="f",  mods = "CTRL|SHIFT",    action = act.Search{ CaseSensitiveString="" } },
+        { key="x",  mods = "CTRL|SHIFT",    action = act.ActivateCopyMode },
+        { key="Space", mods = "CTRL|SHIFT", action = act.QuickSelect },
+        { key="p",  mods = "CTRL|SHIFT",    action = act.ActivateCommandPalette },
+        { key="l",  mods = "CTRL|SHIFT",    action = act.ShowDebugOverlay },
+        { key="m",  mods = "CTRL|ALT",      action = act.Hide },
+        { key="-",  mods = "CTRL",          action = act.DecreaseFontSize },
+        { key="=",  mods = "CTRL",          action = act.IncreaseFontSize },
+        { key="0",  mods = "CTRL",          action = act.ResetFontSize },
     },
-    --[[webgpu_preferred_adapter = {
-        backend = 'Vulkan',
-        device = 26591,
-        device_type = 'DiscreteGpu',
-        driver = 'radv',
-        driver_info = 'Mesa 23.2.0-rc2',
-        name = 'AMD Radeon RX 590 Series (RADV POLARIS10)',
-        vendor = 4098,
-    },--]]
 
     webgpu_preferred_adapter = gpus[1],
-    front_end = 'WebGpu',
+    front_end = "WebGpu",
 
     hide_mouse_cursor_when_typing = false,
     animation_fps = 60,
     max_fps = 144,
 }
+
+--[[ config.background = {
+    {
+        source = {
+            File = "/home/bern/Pictures/Wallpapers/Landscape/Nanakusa.Nazuna.full.3606392.jpg",
+        },
+        hsb = { brightness = 0.1 },
+    },
+} ]]
+
+return config
